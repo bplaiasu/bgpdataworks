@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <meta name="theme-color" content="{{THEME_COLOR}}">
+  <meta property="og:type" content="{{OG_TYPE}}">
+  <meta property="og:site_name" content="{{COMPANY_NAME}}">
+  <meta property="og:title" content="{{OG_TITLE}}">
+  <meta property="og:description" content="{{OG_DESCRIPTION}}">
+{{OG_URL_TAG}}{{CANONICAL_TAG}}  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{TWITTER_TITLE}}">
+  <meta name="twitter:description" content="{{TWITTER_DESCRIPTION}}">
+  <title>{{TITLE}}</title>
+  <link rel="icon" href="{{ROOT}}assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ROOT}}assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ROOT}}assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ROOT}}assets/apple-touch-icon.png">
+  <link rel="manifest" href="{{ROOT}}site.webmanifest">
+{{HEAD_EXTRA}}  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ROOT}}styles.css?r={{CSS_REV}}">
+  <script defer src="{{ROOT}}script.js?r={{JS_REV}}"></script>
+{{STRUCTURED_DATA}}</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+{{HEADER}}
+
+  <main id="main">
+{{MAIN}}
+  </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-back-to-top>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m6.5 14.5 5.5-5.5 5.5 5.5"/>
+    </svg>
+  </button>
+
+{{FOOTER}}
+</body>
+</html>

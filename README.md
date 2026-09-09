@@ -1,46 +1,99 @@
-# BGP Data Works Website — v1.48 Local
+# BGP Data Works Website
 
-This build is derived from the approved v1.43 local source of truth. It adds the fourth detailed Engineering project page. No GitHub changes are part of this package.
+This repository uses a small static-site generator so shared content is maintained once while the deployed website remains fully static and SEO-friendly.
 
-## v1.48 changes
+## How it works
 
-### Engineering — Project 04 detailed page
-- Added `projects/retail-monitoring-data-warehouse.html`.
-- Linked the **Retail Monitoring Data Warehouse** homepage card to the new detailed page using a **View project →** action.
-- Refined the homepage Project 04 card around confirmed implementation details.
-- Expanded Project 04 using confirmed project information:
-  - built from scratch on Microsoft SQL Server;
-  - multiple transactional MySQL source systems;
-  - sales, orders, inventory, products, pricing, customers, payments and logistics data;
-  - normalized snowflake-schema modeling;
-  - stored procedures and scheduled SQL jobs;
-  - selected sub-minute refresh intervals for near-real-time operational reporting;
-  - twice-daily refresh for less time-sensitive workloads;
-  - linked-server connectivity to MySQL sources;
-  - temp tables, partitioning and indexing for SQL performance engineering;
-  - product performance, stock levels and operational KPI dashboards;
-  - approximately 60 business users and stakeholders across analytics, operations, management and finance;
-  - row-count and source-to-warehouse reconciliation.
-- Kept client/employer names out of the public project page.
-- Projects 01–03 remain unchanged in content.
-- No GitHub changes are part of this release.
-- Cache-busting version references updated to v1.48.
-
-## Content boundaries
-Project 04 uses only the confirmed architecture, refresh cadence, user count, reporting use cases and SQL engineering details provided for this project. It does not claim streaming architecture or unconfirmed performance metrics.
-
-## Before production launch
-1. Confirm the final public email address.
-2. Decide whether Insights cards should link to real article pages.
-3. Confirm the production domain, then add the canonical URL, `og:url`, absolute social image URL and `sitemap.xml`.
-4. Run final Lighthouse/Core Web Vitals tests on the deployed production preview.
-
-## Local run
-
-From the parent directory:
+Edit the source files under `src/` and the shared values in `site.json`, then run:
 
 ```bash
-python -m http.server 8080 -d BGP_Data_Works_Website_v1.48_Local
+python build.py
 ```
 
-Then open `http://localhost:8080/index.html` and use **View project →** on any of the four Engineering projects.
+The build generates the deployable files directly in the repository root:
+
+- `index.html`
+- `404.html`
+- `projects/<project-slug>/index.html`
+- `styles.css`
+- `script.js`
+- `assets/`
+
+This means GitHub Pages can continue serving the repository root without a JavaScript application router or a separate deployment framework.
+
+## Centralized configuration
+
+Shared company values live in `site.json`.
+
+For example, the public email address is defined once:
+
+```json
+"contact_email": "contact@bgpdataworks.com"
+```
+
+Run `python build.py` after changing it and the homepage, all project footers and structured data are regenerated consistently.
+
+The future production domain can also be added once in:
+
+```json
+"base_url": ""
+```
+
+When `base_url` is populated, the build automatically adds canonical URLs, `og:url` and a `sitemap.xml`.
+
+## Shared templates
+
+The reusable page structure is under:
+
+```text
+src/templates/
+├── base.html
+├── header.html
+├── footer.html
+└── 404.html
+```
+
+Homepage content:
+
+```text
+src/pages/home.html
+```
+
+Project content:
+
+```text
+src/projects/
+├── enterprise-data-validation-framework.html
+├── high-performance-financial-data-pipeline.html
+├── enterprise-data-platform-modernization.html
+└── retail-monitoring-data-warehouse.html
+```
+
+Each generated project receives its own static URL and full HTML metadata.
+
+## Local development
+
+From this folder:
+
+```bash
+python build.py
+python -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080/index.html
+```
+
+## Editing workflow
+
+1. Change shared settings in `site.json`.
+2. Change shared layout only in `src/templates/`.
+3. Change homepage content in `src/pages/home.html`.
+4. Change an Engineering project in its matching file under `src/projects/`.
+5. Run `python build.py`.
+6. Test locally.
+7. Commit both the source files and generated static files.
+
+There is no framework dependency and no package installation step.

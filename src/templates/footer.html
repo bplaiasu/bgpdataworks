@@ -1,0 +1,31 @@
+  <footer class="site-footer">
+    <div class="container footer-top footer-grid">
+      <div class="footer-identity">
+        <a class="footer-brand" href="{{SITE_ROOT_HREF}}" aria-label="{{COMPANY_NAME}} home">
+          <img src="{{ROOT}}assets/BGP_Data_Works_Primary.svg" width="2020" height="661" loading="lazy" decoding="async" alt="{{COMPANY_NAME}}">
+        </a>
+      </div>
+
+      <nav class="footer-nav footer-column" aria-label="Footer navigation">
+        <strong>Navigation</strong>
+        <a href="{{SECTION_PREFIX}}#deliver">What We Deliver</a>
+        <a href="{{SECTION_PREFIX}}#expertise">Expertise</a>
+        <a href="{{SECTION_PREFIX}}#insights">Insights</a>
+        <a href="{{SECTION_PREFIX}}#about">About</a>
+      </nav>
+
+      <div class="footer-contact footer-column">
+        <strong>Contact</strong>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> {{COMPANY_NAME}}. All rights reserved.</p>
+      <p class="footer-note">Databricks, Delta Lake, Apache Spark and other product names are trademarks of their respective owners.</p>
+    </div>
+  </footer>

@@ -1,0 +1,175 @@
+<section class="project-detail-hero section-dark">
+      <div class="container project-detail-hero-grid">
+        <div>
+          <p class="project-detail-kicker">Selected Engineering Work · Project 01</p>
+          <h1>Enterprise Data Validation Framework</h1>
+          <p class="project-detail-subtitle">Validating business-logic changes before production release.</p>
+          <p class="project-detail-lead">Designed and built an end-to-end validation framework to compare output produced by code-freeze pipeline logic against the current production data baseline, helping identify expected and unexpected impacts before release.</p>
+          <div class="project-detail-tags" aria-label="Project technologies">
+            <span>Databricks</span><span>PySpark</span><span>SQL</span><span>Python</span><span>Delta Lake</span>
+          </div>
+        </div>
+
+        <aside class="project-summary-card" aria-label="Project summary">
+          <div class="project-summary-row">
+            <span class="project-summary-label">Context</span>
+            <strong>Enterprise financial-services data platform</strong>
+            <p>Release validation for data pipelines with evolving business logic.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Objective</span>
+            <strong>Detect unintended differences before release</strong>
+            <p>Compare candidate code-freeze output with the trusted production baseline.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Outputs</span>
+            <strong>Delta tables + dashboards</strong>
+            <p>Structured results for downstream review and validation.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">The challenge</p>
+          <h2>Understand the impact of changing business logic.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>During code freeze, pipeline logic could include added, removed or modified business rules. Before those changes reached production, the resulting data needed to be compared with the current production baseline.</p>
+          <p>The validation process had to expose both structural and data-level differences while making it possible to separate intended changes from unexpected discrepancies that could indicate a regression or data-quality problem.</p>
+          <ul class="project-detail-list">
+            <li>Detect added or removed columns.</li>
+            <li>Identify data-type changes such as <code>INT → BIGINT</code>.</li>
+            <li>Compare aligned records at row and column level.</li>
+            <li>Apply configurable rules to focus validation on relevant differences.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Validation architecture</p>
+          <h2>Candidate output compared against the production baseline.</h2>
+          <p>The framework brought both sides into a consistent comparison process, aligned records, evaluated schema and data differences, and persisted structured results for review.</p>
+        </div>
+
+        <div class="validation-architecture" aria-label="Code-freeze and production data validation flow">
+          <div class="validation-source-stack">
+            <div class="validation-node primary">
+              <small>Baseline</small>
+              <strong>Production data</strong>
+              <span>Current trusted output used as the comparison reference.</span>
+            </div>
+            <div class="validation-node primary">
+              <small>Candidate</small>
+              <strong>Code-freeze output</strong>
+              <span>Result of added, removed or modified business logic.</span>
+            </div>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Step 1</small>
+            <strong>Record alignment</strong>
+            <span>Surrogate keys establish comparable record identity.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Step 2</small>
+            <strong>Schema + data comparison</strong>
+            <span>Structural checks plus row- and column-level difference logic.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node output">
+            <small>Output</small>
+            <strong>Delta tables + dashboards</strong>
+            <span>Configuration-filtered results exposed for validation and review.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Engineering approach</p>
+          <h2>A reusable comparison process, not a one-off check.</h2>
+          <p>The implementation evolved from SQL-based comparison logic toward PySpark and used configuration-driven rules to keep validation behavior separate from the processing code.</p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <div class="approach-number">01</div>
+            <h3>Establish the baseline</h3>
+            <p>Use current production data as the trusted reference against which candidate pipeline output is validated.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">02</div>
+            <h3>Generate candidate output</h3>
+            <p>Execute the code-freeze version containing newly added, removed or modified business logic.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">03</div>
+            <h3>Align comparable records</h3>
+            <p>Create surrogate keys to establish a reliable basis for comparing corresponding records.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">04</div>
+            <h3>Compare schema and data</h3>
+            <p>Detect schema drift and evaluate differences at row and column level. The comparison logic started in SQL and later moved to PySpark.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">05</div>
+            <h3>Apply configurable rules</h3>
+            <p>Drive filtering and validation behavior from a configuration table rather than embedding every condition in the processing logic.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">06</div>
+            <h3>Publish validation results</h3>
+            <p>Persist structured results in Delta tables and surface them through dashboards for downstream review.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Key engineering decisions</p>
+          <h2>Design choices that made the validation repeatable.</h2>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <h3>Surrogate-key based alignment</h3>
+            <p>Record comparison requires stable identity. Surrogate keys were introduced to align corresponding records before row- and column-level checks were applied.</p>
+          </article>
+          <article class="decision-card">
+            <h3>SQL → PySpark evolution</h3>
+            <p>The comparison logic was initially implemented in SQL and later moved to PySpark, keeping the solution aligned with the Databricks processing model.</p>
+          </article>
+          <article class="decision-card">
+            <h3>Configuration-driven validation</h3>
+            <p>A configuration table separated validation rules from processing logic, making the framework easier to adapt as comparison requirements changed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Outcome</p>
+          <h2>A structured release-validation workflow for data changes.</h2>
+        </div>
+        <div class="project-outcome">
+          <p>The framework provided a repeatable way to assess the impact of business-logic changes before release, detect unexpected schema and data-level differences, filter results using configurable rules, and make validation findings available through Delta tables and dashboards.</p>
+        </div>
+        <div class="project-page-actions">
+          <a class="button" href="{{SITE_ROOT_HREF}}#contact">Discuss a similar challenge <span aria-hidden="true">→</span></a>
+          <a class="project-back-link" href="{{SITE_ROOT_HREF}}#engineering">← Back to Engineering</a>
+        </div>
+      </div>
+    </section>

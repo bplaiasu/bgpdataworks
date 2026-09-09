@@ -1,76 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BGP Data Works builds reliable data ingestion and transformation pipelines with Databricks, Delta Lake, PySpark, SQL and medallion architecture.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="theme-color" content="#041B3A">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="BGP Data Works">
-  <meta property="og:title" content="BGP Data Works — Data Pipelines Built for Production">
-  <meta property="og:description" content="Reliable data ingestion and transformation pipelines built with Databricks, Delta Lake, PySpark, SQL and medallion architecture.">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="BGP Data Works — Data Pipelines Built for Production">
-  <meta name="twitter:description" content="Reliable data ingestion and transformation pipelines built with Databricks, Delta Lake, PySpark, SQL and medallion architecture.">
-  <title>BGP Data Works — Data Pipelines Built for Production</title>
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="preload" as="image" href="assets/hero-medallion-bgp.webp" type="image/webp" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?r=45fb5f0318a1">
-  <script defer src="script.js?r=cbab1c8d5259"></script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "BGP Data Works",
-  "description": "Data engineering company focused on reliable data ingestion, transformation, lakehouse architecture and production-grade pipelines.",
-  "email": "contact@bgpdataworks.com",
-  "knowsAbout": [
-    "Data Engineering",
-    "Databricks",
-    "Delta Lake",
-    "PySpark",
-    "SQL",
-    "Medallion Architecture"
-  ]
-}
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header" id="home">
-    <div class="container nav-wrap">
-      <a class="brand" href="./" aria-label="BGP Data Works home">
-        <img src="assets/BGP_Data_Works_Primary.svg" width="2020" height="661" decoding="async" alt="BGP Data Works">
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#home" class="active">Home</a>
-        <a href="#deliver">What We Deliver</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#insights">Insights</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="button button-small nav-cta" href="#contact">Let's talk <span aria-hidden="true">→</span></a>
-    </div>
-  </header>
-
-
-  <main id="main">
 <section class="hero section-dark">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -357,52 +284,9 @@
               <span class="contact-label">Email</span>
             </div>
             <!-- Replace this address if the final BGP contact email is different. -->
-            <a class="contact-value" href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
+            <a class="contact-value" href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>
           </div>
 
         </div>
       </div>
     </section>
-
-  </main>
-
-  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-back-to-top>
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m6.5 14.5 5.5-5.5 5.5 5.5"/>
-    </svg>
-  </button>
-
-  <footer class="site-footer">
-    <div class="container footer-top footer-grid">
-      <div class="footer-identity">
-        <a class="footer-brand" href="./" aria-label="BGP Data Works home">
-          <img src="assets/BGP_Data_Works_Primary.svg" width="2020" height="661" loading="lazy" decoding="async" alt="BGP Data Works">
-        </a>
-      </div>
-
-      <nav class="footer-nav footer-column" aria-label="Footer navigation">
-        <strong>Navigation</strong>
-        <a href="#deliver">What We Deliver</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#insights">Insights</a>
-        <a href="#about">About</a>
-      </nav>
-
-      <div class="footer-contact footer-column">
-        <strong>Contact</strong>
-        <div class="footer-contact-row">
-          <span class="footer-contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
-          </span>
-          <a href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
-        </div>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> BGP Data Works. All rights reserved.</p>
-      <p class="footer-note">Databricks, Delta Lake, Apache Spark and other product names are trademarks of their respective owners.</p>
-    </div>
-  </footer>
-
-</body>
-</html>

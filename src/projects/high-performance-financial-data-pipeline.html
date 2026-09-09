@@ -1,0 +1,216 @@
+<section class="project-detail-hero section-dark">
+      <div class="container project-detail-hero-grid">
+        <div>
+          <p class="project-detail-kicker">Selected Engineering Work · Project 02</p>
+          <h1>High-Performance Financial Data Pipeline</h1>
+          <p class="project-detail-subtitle">Optimizing complex financial logic without changing its business meaning.</p>
+          <p class="project-detail-lead">Optimized a business-critical SQL pipeline used for days-past-due calculations, credit-risk analysis and financial reporting, reducing execution time by 45% through earlier filtering, improved join strategies and removal of redundant processing.</p>
+          <div class="project-detail-tags" aria-label="Project technologies">
+            <span>Databricks</span><span>SQL</span><span>PyTest</span><span>Performance Optimization</span>
+          </div>
+        </div>
+
+        <aside class="project-summary-card" aria-label="Project summary">
+          <div class="project-summary-row">
+            <span class="project-summary-label">Context</span>
+            <strong>Enterprise financial-services data platform</strong>
+            <p>DPD processing supporting credit-risk analysis and financial reporting.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Baseline</span>
+            <strong>~4 hour execution time</strong>
+            <p>Approximately 40 business rules repeatedly processed shared intermediate data.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Result</span>
+            <strong>45% faster execution</strong>
+            <p>Less redundant processing, smaller working datasets and improved compute efficiency.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">The challenge</p>
+          <h2>Performance problems caused by repeated processing, not extreme data volume.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>The DPD pipeline implemented approximately 40 business rules. Many of those rules depended on the same intermediate result, but the existing implementation repeatedly applied similar joins and transformations to substantially the same working dataset.</p>
+          <p>The source data itself was not exceptionally large. The execution time grew because inefficient SQL joins, insufficient early filtering and repeated transformations multiplied the amount of work performed across the rule set.</p>
+          <ul class="project-detail-list">
+            <li>Identify joins that processed more data than required.</li>
+            <li>Reduce datasets before expensive downstream operations.</li>
+            <li>Reuse common intermediate results instead of repeatedly rebuilding them.</li>
+            <li>Improve performance without changing the intended financial calculation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Optimization architecture</p>
+          <h2>Move from repeated rule processing to a shared, reduced working dataset.</h2>
+          <p>The optimization focused on reducing the amount of data processed before the business rules were evaluated and eliminating repeated work around common dependencies.</p>
+        </div>
+
+        <div class="validation-architecture" aria-label="Financial pipeline processing before optimization">
+          <div class="validation-source-stack">
+            <div class="validation-node primary">
+              <small>Before</small>
+              <strong>Source data</strong>
+              <span>Input entered the pipeline with limited early reduction.</span>
+            </div>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Repeated work</small>
+            <strong>Inefficient joins</strong>
+            <span>More data than necessary participated in downstream SQL operations.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Repeated work</small>
+            <strong>Shared data reprocessed</strong>
+            <span>Common intermediate results were repeatedly evaluated across business rules.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node output">
+            <small>Impact</small>
+            <strong>~4 hour runtime</strong>
+            <span>Accumulated inefficiencies drove unnecessary processing and compute usage.</span>
+          </div>
+        </div>
+
+        <div class="validation-architecture" aria-label="Financial pipeline processing after optimization">
+          <div class="validation-source-stack">
+            <div class="validation-node primary">
+              <small>After</small>
+              <strong>Source data</strong>
+              <span>Processing starts by reducing the working dataset as early as possible.</span>
+            </div>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Step 1</small>
+            <strong>Early filtering + better joins</strong>
+            <span>Only relevant records flow into expensive operations; broadcast joins are used where appropriate.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Step 2</small>
+            <strong>Shared intermediate result</strong>
+            <span>Common preparation is reused rather than repeatedly reconstructed for each rule.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node output">
+            <small>Result</small>
+            <strong>Business rules + DPD output</strong>
+            <span>Approximately 40 rules operate on a more efficient processing flow.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Engineering approach</p>
+          <h2>Optimize the execution path while preserving business correctness.</h2>
+          <p>The work combined SQL performance engineering with close collaboration around domain-specific financial logic.</p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <div class="approach-number">01</div>
+            <h3>Understand the business rules</h3>
+            <p>Collaborate with domain experts to understand the DPD logic, rule dependencies and expected financial results before changing the implementation.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">02</div>
+            <h3>Identify repeated processing</h3>
+            <p>Trace where approximately 40 rules repeatedly depended on the same intermediate result and locate unnecessary recomputation.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">03</div>
+            <h3>Filter data earlier</h3>
+            <p>Move filtering upstream so joins and transformations work with only the records required by downstream calculations.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">04</div>
+            <h3>Improve join strategy</h3>
+            <p>Rework inefficient SQL joins and use broadcast joins where appropriate for smaller datasets and lookup-style relationships.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">05</div>
+            <h3>Remove redundant transformations</h3>
+            <p>Consolidate common processing paths and eliminate repeated transformations that generated equivalent intermediate results.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">06</div>
+            <h3>Validate with PyTest</h3>
+            <p>Use controlled input datasets and business-defined expected outputs to confirm that optimized SQL logic preserved the intended calculation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">Testing strategy</p>
+          <h2>Performance improvements had to preserve the expected DPD result.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>PyTest-based unit tests were built around specific business scenarios. Each test supplied controlled input data and verified that the SQL output matched the result expected by the business.</p>
+          <p>This provided a safety net for refactoring: join strategies, filtering and shared processing could be improved while the expected financial behavior remained explicit and testable.</p>
+          <ul class="project-detail-list">
+            <li>Controlled inputs represented defined business scenarios.</li>
+            <li>Expected outputs captured the result the DPD logic was required to produce.</li>
+            <li>Optimized SQL output was checked against those expected results.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Key engineering decisions</p>
+          <h2>Changes driven by data flow, domain understanding and correctness.</h2>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <h3>Optimize shared dependencies</h3>
+            <p>Common intermediate results were treated as shared dependencies instead of repeatedly rebuilding similar processing paths for individual business rules.</p>
+          </article>
+          <article class="decision-card">
+            <h3>Reduce data before expensive work</h3>
+            <p>Filtering moved earlier in the pipeline so joins and transformations operated on smaller working datasets and consumed less compute.</p>
+          </article>
+          <article class="decision-card">
+            <h3>Preserve business meaning</h3>
+            <p>Technical changes were made only after understanding the financial rules and were validated with business-defined input and expected-output tests.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Outcome</p>
+          <h2>45% faster execution with less unnecessary processing.</h2>
+        </div>
+        <div class="project-outcome">
+          <p>The optimization reduced execution time by 45% from an original runtime of approximately four hours. Earlier filtering, improved join strategies and the removal of redundant transformations reduced the amount of data processed and improved compute efficiency. PyTest-based unit tests helped ensure that the optimized SQL logic continued to produce the business-expected DPD results.</p>
+        </div>
+        <div class="project-page-actions">
+          <a class="button" href="{{SITE_ROOT_HREF}}#contact">Discuss a similar challenge <span aria-hidden="true">→</span></a>
+          <a class="project-back-link" href="{{SITE_ROOT_HREF}}#engineering">← Back to Engineering</a>
+        </div>
+      </div>
+    </section>

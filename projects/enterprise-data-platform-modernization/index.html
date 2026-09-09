@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Enterprise Data Platform Modernization: a controlled migration of complete enterprise data pipelines from Snowflake and Airflow to a Databricks Lakehouse architecture.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#041B3A">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="BGP Data Works">
+  <meta property="og:title" content="Enterprise Data Platform Modernization — BGP Data Works">
+  <meta property="og:description" content="A pipeline-by-pipeline migration from Snowflake and Airflow to Databricks, using Medallion Architecture, technical reconciliation and business validation.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Enterprise Data Platform Modernization — BGP Data Works">
+  <meta name="twitter:description" content="A controlled migration of complete enterprise data pipelines from Snowflake and Airflow to Databricks.">
+  <title>Enterprise Data Platform Modernization — BGP Data Works</title>
+  <link rel="icon" href="../../assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?r=45fb5f0318a1">
+  <script defer src="../../script.js?r=cbab1c8d5259"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BGP Data Works",
+  "description": "Data engineering company focused on reliable data ingestion, transformation, lakehouse architecture and production-grade pipelines.",
+  "email": "contact@bgpdataworks.com",
+  "knowsAbout": [
+    "Data Engineering",
+    "Databricks",
+    "Delta Lake",
+    "PySpark",
+    "SQL",
+    "Medallion Architecture"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../" aria-label="BGP Data Works home">
+        <img src="../../assets/BGP_Data_Works_Primary.svg" width="2020" height="661" decoding="async" alt="BGP Data Works">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="../../">Home</a>
+        <a href="../../#deliver">What We Deliver</a>
+        <a href="../../#expertise">Expertise</a>
+        <a href="../../#insights">Insights</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+
+      <a class="button button-small nav-cta" href="../../#contact">Let's talk <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+
+  <main id="main">
+<section class="project-detail-hero section-dark">
+      <div class="container project-detail-hero-grid">
+        <div>
+          <p class="project-detail-kicker">Selected Engineering Work · Project 03</p>
+          <h1>Enterprise Data Platform Modernization</h1>
+          <p class="project-detail-subtitle">Migrating complete data pipelines to a single Databricks Lakehouse platform.</p>
+          <p class="project-detail-lead">Modernized a centralized retail data platform by migrating complete pipelines from Snowflake and Airflow to Databricks, consolidating ingestion, orchestration and transformation while preserving business logic and data consistency.</p>
+          <div class="project-detail-tags" aria-label="Project technologies">
+            <span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>Medallion Architecture</span>
+          </div>
+        </div>
+
+        <aside class="project-summary-card" aria-label="Project summary">
+          <div class="project-summary-row">
+            <span class="project-summary-label">Legacy platform</span>
+            <strong>Snowflake + Airflow</strong>
+            <p>Airflow handled file ingestion, dependencies and scheduling around Snowflake-based pipelines.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Migration approach</span>
+            <strong>Pipeline by pipeline</strong>
+            <p>Rewrite, test, compare with the legacy output, validate with the business and then deploy.</p>
+          </div>
+          <div class="project-summary-row">
+            <span class="project-summary-label">Target platform</span>
+            <strong>100% Databricks</strong>
+            <p>Snowflake and Airflow were removed from the final architecture for the migrated workloads.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">The challenge</p>
+          <h2>Modernize the platform without losing the behavior embedded in legacy pipelines.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>The existing data platform combined Snowflake for data processing and storage with Airflow for file ingestion, dependency management and scheduling. The modernization goal was to consolidate those responsibilities onto Databricks and create a more scalable single-platform architecture.</p>
+          <p>The hardest part was not simply translating code. Each legacy pipeline contained business logic and assumptions that had to be understood before the pipeline could be rewritten safely. Data consistency between the legacy and modernized implementations was a core requirement throughout the migration.</p>
+          <ul class="project-detail-list">
+            <li>Understand business transformations embedded in existing pipelines.</li>
+            <li>Rebuild complete pipeline behavior on Databricks.</li>
+            <li>Preserve data consistency during a gradual migration.</li>
+            <li>Remove the operational dependency on both Snowflake and Airflow.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture transition</p>
+          <h2>From a split Snowflake + Airflow stack to a unified Databricks platform.</h2>
+          <p>Databases, files and retail transaction data continued to feed the platform, while ingestion, orchestration and transformation responsibilities moved into Databricks.</p>
+        </div>
+
+        <div class="validation-architecture" aria-label="Legacy Snowflake and Airflow architecture">
+          <div class="validation-source-stack">
+            <div class="validation-node primary">
+              <small>Sources</small>
+              <strong>Databases + files</strong>
+              <span>Retail transaction and enterprise source data.</span>
+            </div>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Orchestration</small>
+            <strong>Airflow</strong>
+            <span>File ingestion, schedules and pipeline dependencies.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Legacy platform</small>
+            <strong>Snowflake</strong>
+            <span>Existing pipeline processing, transformations and data workloads.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node output">
+            <small>Consumption</small>
+            <strong>Analytics + reporting</strong>
+            <span>Enterprise reporting and downstream data use.</span>
+          </div>
+        </div>
+
+        <div class="validation-architecture" aria-label="Modernized Databricks Lakehouse architecture">
+          <div class="validation-source-stack">
+            <div class="validation-node primary">
+              <small>Sources</small>
+              <strong>Databases + files</strong>
+              <span>Retail transaction and enterprise source data.</span>
+            </div>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Unified platform</small>
+            <strong>Databricks ingestion + orchestration</strong>
+            <span>Schedules, dependencies and ingestion moved onto the target platform.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node">
+            <small>Lakehouse</small>
+            <strong>Bronze → Silver → Gold</strong>
+            <span>Clear transformation boundaries from raw to business-ready data.</span>
+          </div>
+          <div class="validation-arrow" aria-hidden="true">→</div>
+          <div class="validation-node output">
+            <small>Consumption</small>
+            <strong>Analytics + reporting</strong>
+            <span>Validated outputs delivered from the Databricks-based platform.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Migration approach</p>
+          <h2>A controlled migration cycle repeated one pipeline at a time.</h2>
+          <p>The platform was modernized gradually rather than through a big-bang cutover. Each pipeline moved through the same sequence before production deployment.</p>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <div class="approach-number">01</div>
+            <h3>Select one pipeline</h3>
+            <p>Choose a legacy Snowflake/Airflow pipeline as the next migration unit rather than changing the full platform at once.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">02</div>
+            <h3>Understand legacy logic</h3>
+            <p>Analyze transformations, dependencies and business assumptions before introducing implementation changes.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">03</div>
+            <h3>Rewrite for Databricks</h3>
+            <p>Rebuild the complete pipeline on Databricks and structure transformations using Bronze, Silver and Gold layers.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">04</div>
+            <h3>Test and reconcile</h3>
+            <p>Run row-count checks and old-vs-new data comparisons against the legacy implementation.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">05</div>
+            <h3>Validate with business</h3>
+            <p>Review the migrated output with business stakeholders before replacing the production pipeline.</p>
+          </article>
+          <article class="approach-card">
+            <div class="approach-number">06</div>
+            <h3>Deploy and repeat</h3>
+            <p>Move the validated pipeline into production, then continue the same controlled process with the next pipeline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">Medallion Architecture</p>
+          <h2>Clear transformation boundaries from source data to business-ready output.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>The rewritten pipelines were organized using a Bronze, Silver and Gold approach. This gave the target platform a consistent structure and separated ingestion concerns from cleansing, transformation and business-facing outputs.</p>
+          <ul class="project-detail-list">
+            <li><strong>Bronze:</strong> ingested source data retained as the raw platform layer.</li>
+            <li><strong>Silver:</strong> cleaned and transformed data with reusable processing logic.</li>
+            <li><strong>Gold:</strong> business-ready datasets used by analytics and reporting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container project-detail-layout">
+        <div>
+          <p class="eyebrow">Validation strategy</p>
+          <h2>Prove equivalence before replacing each legacy pipeline.</h2>
+        </div>
+        <div class="project-detail-body">
+          <p>Each migrated pipeline was validated against the Snowflake-based implementation before production deployment. Technical reconciliation focused on row counts and old-vs-new output comparison to expose missing, unexpected or inconsistent data.</p>
+          <p>Technical validation was followed by business review. Only after the migrated result was accepted was the Databricks pipeline deployed to production.</p>
+          <ul class="project-detail-list">
+            <li>Row-count reconciliation between legacy and Databricks outputs.</li>
+            <li>Old-vs-new data comparison to verify consistency.</li>
+            <li>Business validation before production cutover.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Key engineering decisions</p>
+          <h2>Reduce migration risk while simplifying the long-term platform.</h2>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <h3>Migrate incrementally</h3>
+            <p>Move one pipeline at a time so each migration could be understood, validated and deployed independently.</p>
+          </article>
+          <article class="decision-card">
+            <h3>Preserve behavior before replacing architecture</h3>
+            <p>Understand existing business logic first and use the legacy output as the reference during the rewrite.</p>
+          </article>
+          <article class="decision-card">
+            <h3>Consolidate onto Databricks</h3>
+            <p>Move ingestion, orchestration and transformation responsibilities onto one platform so Snowflake and Airflow could be removed from the final architecture.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Outcome</p>
+          <h2>A consolidated Databricks platform built through controlled, validated migration.</h2>
+        </div>
+        <div class="project-outcome">
+          <p>The migration progressively replaced the Snowflake and Airflow architecture with a Databricks-based Lakehouse platform. Complete pipelines were redesigned around Bronze, Silver and Gold layers, while ingestion, orchestration and transformation responsibilities were consolidated onto Databricks.</p>
+          <p>Each pipeline moved through legacy-logic analysis, implementation, row-count and old-vs-new validation, business review and production deployment. This controlled approach helped preserve data consistency while simplifying the final platform architecture.</p>
+        </div>
+        <div class="project-page-actions">
+          <a class="button" href="../../#contact">Discuss a similar challenge <span aria-hidden="true">→</span></a>
+          <a class="project-back-link" href="../../#engineering">← Back to Engineering</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-back-to-top>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m6.5 14.5 5.5-5.5 5.5 5.5"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container footer-top footer-grid">
+      <div class="footer-identity">
+        <a class="footer-brand" href="../../" aria-label="BGP Data Works home">
+          <img src="../../assets/BGP_Data_Works_Primary.svg" width="2020" height="661" loading="lazy" decoding="async" alt="BGP Data Works">
+        </a>
+      </div>
+
+      <nav class="footer-nav footer-column" aria-label="Footer navigation">
+        <strong>Navigation</strong>
+        <a href="../../#deliver">What We Deliver</a>
+        <a href="../../#expertise">Expertise</a>
+        <a href="../../#insights">Insights</a>
+        <a href="../../#about">About</a>
+      </nav>
+
+      <div class="footer-contact footer-column">
+        <strong>Contact</strong>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <a href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> BGP Data Works. All rights reserved.</p>
+      <p class="footer-note">Databricks, Delta Lake, Apache Spark and other product names are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
