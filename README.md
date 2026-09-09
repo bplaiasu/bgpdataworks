@@ -1,52 +1,46 @@
-v1.37 cleanup: removed obsolete favicon.svg and hero-medallion-bgp.png. The hero now uses the optimized WebP asset directly.
+# BGP Data Works Website — v1.48 Local
 
-BGP Data Works local website v1.36
+This build is derived from the approved v1.43 local source of truth. It adds the fourth detailed Engineering project page. No GitHub changes are part of this package.
 
-Changes from v1.34 stable baseline:
-- Integrated approved BGP circular favicon package.
-- Added favicon.ico, PNG sizes, Apple touch icon, Android icons and site.webmanifest.
-- Updated index.html and 404.html favicon references.
+## v1.48 changes
 
-# BGP Data Works Website — v1.34 Local
+### Engineering — Project 04 detailed page
+- Added `projects/retail-monitoring-data-warehouse.html`.
+- Linked the **Retail Monitoring Data Warehouse** homepage card to the new detailed page using a **View project →** action.
+- Refined the homepage Project 04 card around confirmed implementation details.
+- Expanded Project 04 using confirmed project information:
+  - built from scratch on Microsoft SQL Server;
+  - multiple transactional MySQL source systems;
+  - sales, orders, inventory, products, pricing, customers, payments and logistics data;
+  - normalized snowflake-schema modeling;
+  - stored procedures and scheduled SQL jobs;
+  - selected sub-minute refresh intervals for near-real-time operational reporting;
+  - twice-daily refresh for less time-sensitive workloads;
+  - linked-server connectivity to MySQL sources;
+  - temp tables, partitioning and indexing for SQL performance engineering;
+  - product performance, stock levels and operational KPI dashboards;
+  - approximately 60 business users and stakeholders across analytics, operations, management and finance;
+  - row-count and source-to-warehouse reconciliation.
+- Kept client/employer names out of the public project page.
+- Projects 01–03 remain unchanged in content.
+- No GitHub changes are part of this release.
+- Cache-busting version references updated to v1.48.
 
-This build is derived from the approved v1.33 stable baseline. Visual design and responsive layout are intentionally unchanged.
-
-## v1.34 changes
-
-### Performance
-- Added a WebP hero image variant (PNG retained as fallback).
-- Preloads the hero/LCP image and sets `fetchpriority="high"`.
-- Added intrinsic image dimensions to reduce layout shift.
-- Lazy-loads below-the-fold technology logo images.
-- Removed unused legacy assets from previous iterations.
-
-### Accessibility
-- Active header/footer navigation now exposes `aria-current="location"`.
-- Phone reveal areas use polite live regions.
-- Mobile menu toggle now has a 44×44 CSS touch target.
-- Phone reveal controls have expanded invisible hit areas without changing appearance.
-
-### SEO
-- Added robots, theme-color, Open Graph and basic Twitter metadata.
-- Added Organization JSON-LD using only currently established company information.
-- Added `noindex` to the 404 page.
-
-### Content cleanup
-- Updated stale version comments and phone configuration documentation.
-- Removed unused assets while keeping all assets currently rendered by the site.
+## Content boundaries
+Project 04 uses only the confirmed architecture, refresh cadence, user count, reporting use cases and SQL engineering details provided for this project. It does not claim streaming architecture or unconfirmed performance metrics.
 
 ## Before production launch
-1. Replace the test phone number `+40 745 123 456` with the real number.
-2. Confirm `hello@bgpdataworks.com` is the final public email.
-3. Confirm the production domain. Then add the canonical URL, `og:url`, absolute social image URL and `sitemap.xml`.
-4. Decide whether Engineering and Insights cards should link to real project/article pages.
-5. Run final Lighthouse/Core Web Vitals tests on the deployed preview.
+1. Confirm the final public email address.
+2. Decide whether Insights cards should link to real article pages.
+3. Confirm the production domain, then add the canonical URL, `og:url`, absolute social image URL and `sitemap.xml`.
+4. Run final Lighthouse/Core Web Vitals tests on the deployed production preview.
 
 ## Local run
+
 From the parent directory:
 
 ```bash
-python -m http.server 8080 -d BGP_Data_Works_Website_v1.34_Local
+python -m http.server 8080 -d BGP_Data_Works_Website_v1.48_Local
 ```
 
-Then open `http://localhost:8080/index.html`.
+Then open `http://localhost:8080/index.html` and use **View project →** on any of the four Engineering projects.

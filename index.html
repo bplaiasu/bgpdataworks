@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- BGP Data Works local website v1.37 -->
+<!-- BGP Data Works local website v1.48 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1.37">
-  <script defer src="script.js?v=1.37"></script>
+  <link rel="stylesheet" href="styles.css?v=1.48">
+  <script defer src="script.js?v=1.48"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -93,7 +93,7 @@
           <div>
             <p class="eyebrow">What we deliver</p>
             <h2>Data engineering built for production.</h2>
-            <p>From ingestion to business-ready data, we design, build and modernize the pipelines your business depends on.</p>
+            <p>From ingestion to curated data, we design, build and modernize the systems that move data reliably through your platform.</p>
           </div>
           <a class="text-link" href="#contact">Discuss your use case <span aria-hidden="true">→</span></a>
         </div>
@@ -131,7 +131,7 @@
               <svg viewBox="0 0 48 48"><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/><circle cx="24" cy="24" r="4"/><path d="M15 14l6 7M33 14l-6 7M15 34l6-7M33 34l-6-7"/></svg>
             </div>
             <h3>Pipeline Engineering</h3>
-            <p>Build pipelines that are ready for production.</p>
+            <p>Engineer pipelines for reliable operation in production.</p>
             <span>Orchestration · Monitoring · Error handling · Data quality</span>
           </article>
 
@@ -210,7 +210,7 @@
         <div class="expertise-intro">
           <p class="eyebrow">Technical expertise</p>
           <h2>Built with modern<br>data engineering<br>technologies.</h2>
-          <p>We use the right tools and proven practices to build reliable, scalable and maintainable data pipelines.</p>
+          <p>We combine modern data technologies with proven engineering practices to build scalable and maintainable data platforms.</p>
         </div>
 
         <article class="expertise-card">
@@ -241,8 +241,8 @@
         <div class="section-heading split-heading compact-heading">
           <div>
             <p class="eyebrow">Engineering</p>
-            <h2>Reference engineering work</h2>
-            <p>Examples that demonstrate architecture choices and implementation patterns without presenting them as client case studies.</p>
+            <h2>Selected engineering work</h2>
+            <p>Selected engineering work demonstrating architecture decisions, reusable patterns and production-oriented implementation.</p>
           </div>
         </div>
 
@@ -250,25 +250,37 @@
           <article class="project-card">
             <div class="project-mark" aria-hidden="true">01</div>
             <div>
-              <h3>Metadata-Driven Ingestion Framework</h3>
-              <p>A reusable framework for ingesting data from multiple sources with schema evolution and incremental processing.</p>
-              <div class="tags"><span>Databricks</span><span>PySpark</span><span>Delta Lake</span></div>
+              <h3>Enterprise Data Validation Framework</h3>
+              <p>Designed a configuration-driven Databricks validation framework to compare code-freeze pipeline output against production data, detect schema and data-level differences, and surface the impact of business-logic changes before release.</p>
+              <div class="tags"><span>Databricks</span><span>PySpark</span><span>SQL</span><span>Delta Lake</span></div>
+              <a class="project-link" href="projects/enterprise-data-validation-framework.html">View project <span aria-hidden="true">→</span></a>
             </div>
           </article>
           <article class="project-card">
             <div class="project-mark" aria-hidden="true">02</div>
             <div>
-              <h3>Medallion Lakehouse Reference</h3>
-              <p>An end-to-end Bronze, Silver and Gold architecture with explicit transformation boundaries and quality checks.</p>
-              <div class="tags"><span>Databricks</span><span>SQL</span><span>Delta Lake</span></div>
+              <h3>High-Performance Financial Data Pipeline</h3>
+              <p>Optimized a SQL-based financial data pipeline with approximately 40 business rules sharing common intermediate results, reducing execution time by 45% through early filtering, improved join strategies and the removal of redundant processing.</p>
+              <div class="tags"><span>Databricks</span><span>SQL</span><span>PyTest</span><span>Performance Optimization</span></div>
+              <a class="project-link" href="projects/high-performance-financial-data-pipeline.html">View project <span aria-hidden="true">→</span></a>
             </div>
           </article>
           <article class="project-card">
             <div class="project-mark" aria-hidden="true">03</div>
             <div>
-              <h3>API-to-Lakehouse Pipeline</h3>
-              <p>A complete pipeline pattern showing how to ingest external APIs, validate data and expose business-ready datasets.</p>
-              <div class="tags"><span>Python</span><span>Databricks</span><span>Delta Lake</span></div>
+              <h3>Enterprise Data Platform Modernization</h3>
+              <p>Migrated complete enterprise data pipelines from Snowflake and Airflow to Databricks using a controlled pipeline-by-pipeline strategy, Medallion Architecture and old-vs-new data validation.</p>
+              <div class="tags"><span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>Migration</span></div>
+              <a class="project-link" href="projects/enterprise-data-platform-modernization.html">View project <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-mark" aria-hidden="true">04</div>
+            <div>
+              <h3>Retail Monitoring Data Warehouse</h3>
+              <p>Designed and built a SQL Server retail data warehouse integrating multiple transactional MySQL systems, with near-real-time ingestion, a normalized snowflake model and operational reporting for approximately 60 business users.</p>
+              <div class="tags"><span>SQL Server</span><span>T-SQL</span><span>Data Warehousing</span><span>Data Modeling</span></div>
+              <a class="project-link" href="projects/retail-monitoring-data-warehouse.html">View project <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
@@ -307,9 +319,9 @@
           <div class="section-heading">
             <p class="eyebrow">About BGP Data Works</p>
             <h2>Specialized data engineering, without unnecessary complexity.</h2>
-            <p>BGP Data Works focuses on the data foundation underneath analytics and AI: reliable ingestion, transformation, lakehouse architecture and production-grade pipelines.</p>
+            <p>BGP Data Works focuses on the data foundation behind analytics and AI: ingestion, transformation, lakehouse architecture and production-grade data pipelines.</p>
           </div>
-          <p class="about-secondary">Our approach is engineering-led, transparent and practical. Technical credibility comes from clear architecture, sound decisions and work that can be explained — not inflated claims or invented metrics.</p>
+          <p class="about-secondary">Our approach is engineering-led, transparent and practical. We focus on clear architecture, sound technical decisions and maintainable systems that teams can understand and operate. We work with organizations that need to build, modernize or strengthen their data platform — from ingestion pipelines to production-ready lakehouse architectures.</p>
         </div>
       </div>
     </section>
@@ -319,13 +331,13 @@
         <div class="contact-copy">
           <p class="eyebrow eyebrow-light">Contact</p>
           <h2>Have a data engineering project in mind?</h2>
-          <p>Tell us about your data sources, pipelines or platform goals and we can start with a focused conversation about the right approach.</p>
+          <p>Tell us about your data sources, pipelines or platform goals. We can start with a focused conversation about the right approach.</p>
         </div>
 
         <div class="contact-details-card" aria-label="BGP Data Works contact details">
           <div class="contact-card-heading">
             <p class="contact-card-kicker">Start a conversation</p>
-            <p class="contact-card-note">Reach us directly by email or phone.</p>
+            <p class="contact-card-note">Reach us directly by email.</p>
           </div>
 
           <div class="contact-line">
@@ -336,23 +348,9 @@
               <span class="contact-label">Email</span>
             </div>
             <!-- Replace this address if the final BGP contact email is different. -->
-            <a class="contact-value" href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
+            <a class="contact-value" href="mailto:hello@bgpdataworks.com">hello@bgpdataworks.com</a>
           </div>
 
-          <div class="contact-line">
-            <div class="contact-label-row">
-              <span class="contact-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8.2 3.5 5.7 4.7c-.8.4-1.2 1.3-.9 2.2 1.9 5.9 6.4 10.4 12.3 12.3.9.3 1.8-.1 2.2-.9l1.2-2.5-4.6-2.1-1.2 2c-3-1.3-5.3-3.6-6.6-6.6l2-1.2z"/></svg>
-              </span>
-              <span class="contact-label">Phone</span>
-            </div>
-            <div class="contact-value-row" aria-live="polite">
-              <button class="phone-reveal-button" type="button" data-phone-reveal aria-expanded="false">
-                Show phone number
-              </button>
-              <a class="contact-value phone-number" href="#" data-phone-number hidden></a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -384,16 +382,7 @@
           <span class="footer-contact-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
           </span>
-          <a href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M8.2 3.5 5.7 4.7c-.8.4-1.2 1.3-.9 2.2 1.9 5.9 6.4 10.4 12.3 12.3.9.3 1.8-.1 2.2-.9l1.2-2.5-4.6-2.1-1.2 2c-3-1.3-5.3-3.6-6.6-6.6l2-1.2z"/></svg>
-          </span>
-          <div class="footer-contact-value" aria-live="polite">
-            <button class="footer-phone-reveal" type="button" data-phone-reveal aria-expanded="false">Show phone number</button>
-            <a class="footer-phone-number" href="#" data-phone-number hidden></a>
-          </div>
+          <a href="mailto:hello@bgpdataworks.com">hello@bgpdataworks.com</a>
         </div>
       </div>
     </div>

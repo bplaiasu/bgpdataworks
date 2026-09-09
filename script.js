@@ -105,39 +105,6 @@ setActive();
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-/*
- * PHONE CONFIGURATION
- * -------------------
- * The current number is a TEST number used during local validation.
- * Replace both arrays with the final BGP Data Works phone number before launch.
- * The number remains absent from index.html and is revealed only after user action.
- */
-const PHONE_DISPLAY_PARTS = ['+40', '745', '123', '456'];
-const PHONE_TEL_PARTS = ['+40', '745123456'];
-
-const phoneRevealButtons = [...document.querySelectorAll('[data-phone-reveal]')];
-
-phoneRevealButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const container = button.parentElement;
-    const numberLink = container ? container.querySelector('[data-phone-number]') : null;
-
-    if (!numberLink) return;
-
-    if (!PHONE_DISPLAY_PARTS.length || !PHONE_TEL_PARTS.length) {
-      button.textContent = 'Phone number not configured';
-      button.disabled = true;
-      return;
-    }
-
-    numberLink.textContent = PHONE_DISPLAY_PARTS.join(' ');
-    numberLink.href = `tel:${PHONE_TEL_PARTS.join('')}`;
-    numberLink.hidden = false;
-    button.hidden = true;
-    button.setAttribute('aria-expanded', 'true');
-  });
-});
-
 // Back to top: shown only once the visitor has moved away from the top of the page.
 const backToTop = document.querySelector('[data-back-to-top]');
 
