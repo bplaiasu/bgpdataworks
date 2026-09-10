@@ -187,6 +187,46 @@ def build():
         if project_url:
             project_urls.append(project_url)
 
+    # Insight pages.
+    insight_urls = []
+    for insight in config.get("insights", []):
+        slug = insight["slug"]
+        root_prefix = "../../"
+        shared = shared_context(company, root_prefix, False)
+        header = render(header_template, shared)
+        footer = render(footer_template, shared)
+        fragment = render(load(SRC / insight["source"]), shared)
+
+        insight_url = page_url(company.get("base_url", ""), f"insights/{slug}")
+        canonical_tag, og_url_tag = url_tags(insight_url)
+
+        context = {
+            **shared,
+            "TITLE": escaped(insight["title"]),
+            "META_DESCRIPTION": escaped(insight["description"]),
+            "CSS_REV": css_rev,
+            "JS_REV": js_rev,
+            "ROBOTS": "index, follow, max-image-preview:large",
+            "THEME_COLOR": escaped(company["theme_color"]),
+            "OG_TYPE": "article",
+            "OG_TITLE": escaped(insight["og_title"]),
+            "OG_DESCRIPTION": escaped(insight["og_description"]),
+            "TWITTER_TITLE": escaped(insight["twitter_title"]),
+            "TWITTER_DESCRIPTION": escaped(insight["twitter_description"]),
+            "CANONICAL_TAG": canonical_tag,
+            "OG_URL_TAG": og_url_tag,
+            "HEAD_EXTRA": "",
+            "STRUCTURED_DATA": organization_schema(company),
+            "HEADER": header,
+            "MAIN": fragment,
+            "FOOTER": footer
+        }
+
+        output = ROOT / "insights" / slug / "index.html"
+        write(output, render(base_template, context))
+        if insight_url:
+            insight_urls.append(insight_url)
+
     # 404.
     error_context = {
         "THEME_COLOR": escaped(company["theme_color"]),
@@ -197,7 +237,7 @@ def build():
 
     # Sitemap becomes available automatically when the final base URL is configured.
     if company.get("base_url"):
-        urls = [home_url, *project_urls]
+        urls = [home_url, *project_urls, *insight_urls]
         sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
         for url in urls:
@@ -208,6 +248,7 @@ def build():
     print("Build complete.")
     print(f"Generated homepage: {ROOT / 'index.html'}")
     print(f"Generated project pages: {len(config['projects'])}")
+    print(f"Generated insight pages: {len(config.get('insights', []))}")
     print(f"Shared email: {company['contact_email']}")
 
 if __name__ == "__main__":

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical guide to the responsibilities of Bronze, Silver and Gold layers in Medallion Architecture, including validation, schema evolution and incremental processing.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#041B3A">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="BGP Data Works">
+  <meta property="og:title" content="Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works">
+  <meta property="og:description" content="A practical perspective on what belongs in each Medallion Architecture layer and how to keep responsibilities clear as data platforms evolve.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works">
+  <meta name="twitter:description" content="A practical perspective on what belongs in each Medallion Architecture layer and how to keep responsibilities clear as data platforms evolve.">
+  <title>Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works</title>
+  <link rel="icon" href="../../assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?r=1c4b1f971813">
+  <script defer src="../../script.js?r=cbab1c8d5259"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "BGP Data Works",
+  "description": "Data engineering company focused on reliable data ingestion, transformation, lakehouse architecture and production-grade pipelines.",
+  "email": "contact@bgpdataworks.com",
+  "knowsAbout": [
+    "Data Engineering",
+    "Databricks",
+    "Delta Lake",
+    "PySpark",
+    "SQL",
+    "Medallion Architecture"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../" aria-label="BGP Data Works home">
+        <img src="../../assets/BGP_Data_Works_Primary.svg" width="2020" height="661" decoding="async" alt="BGP Data Works">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="../../">Home</a>
+        <a href="../../#deliver">What We Deliver</a>
+        <a href="../../#expertise">Expertise</a>
+        <a href="../../#insights">Insights</a>
+        <a href="../../#about">About</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+
+      <a class="button button-small nav-cta" href="../../#contact">Let's talk <span aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+
+  <main id="main">
+<section class="insight-detail-hero section-dark">
+      <div class="container insight-detail-hero-inner">
+        <p class="project-detail-kicker">Insights · Medallion Architecture</p>
+        <h1>Bronze, Silver, Gold: What Each Layer Should Actually Do</h1>
+        <p class="insight-detail-subtitle">A practical way to define responsibilities across the Medallion Architecture.</p>
+        <p class="insight-detail-lead">The value of Bronze, Silver and Gold does not come from having three schemas. It comes from giving each layer a clear responsibility so that raw data, trusted data and business-facing data do not slowly blur together.</p>
+        <div class="project-detail-tags" aria-label="Article topics">
+          <span>Databricks</span><span>Delta Lake</span><span>Medallion Architecture</span><span>Data Quality</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="insight-article">
+      <div class="container insight-article-shell">
+
+        <section class="insight-intro">
+          <h2>The core idea</h2>
+          <p>Medallion Architecture is often explained with a simple diagram: data moves from Bronze to Silver to Gold, becoming cleaner and more useful at each step.</p>
+          <p>That explanation is directionally correct, but it leaves out the part that matters most in real systems: <strong>what responsibility belongs in each layer, and where should a transformation actually happen?</strong></p>
+          <p>Without clear boundaries, Bronze becomes partially transformed, Silver becomes a mixture of staging and business logic, and Gold slowly turns into another general-purpose transformation layer. The architecture still has three names, but the separation of concerns has disappeared.</p>
+          <p>A useful Medallion Architecture is not defined by the number of schemas or folders it contains. It is defined by the responsibilities assigned to each layer.</p>
+        </section>
+
+        <div class="medallion-responsibility" aria-label="Bronze, Silver and Gold layer responsibilities">
+          <div class="responsibility-card responsibility-bronze">
+            <span class="responsibility-label">Bronze</span>
+            <strong>Preserve what arrived.</strong>
+            <p>Raw source data, ingestion metadata and traceability.</p>
+          </div>
+          <span class="responsibility-arrow" aria-hidden="true">→</span>
+          <div class="responsibility-card responsibility-silver">
+            <span class="responsibility-label">Silver</span>
+            <strong>Establish what can be trusted.</strong>
+            <p>Consistency, validation, deduplication and reusable data contracts.</p>
+          </div>
+          <span class="responsibility-arrow" aria-hidden="true">→</span>
+          <div class="responsibility-card responsibility-gold">
+            <span class="responsibility-label">Gold</span>
+            <strong>Publish what the business should consume.</strong>
+            <p>Purpose-built analytical models, metrics and data products.</p>
+          </div>
+        </div>
+
+        <section class="insight-article-section">
+          <h2>Why Medallion Architecture exists</h2>
+          <p>The purpose of the Medallion pattern is to separate different stages of data processing so that each stage has a clear contract.</p>
+          <p>Raw source data should not be mixed with cleaned data. Technical standardization should not be mixed unnecessarily with reporting-specific calculations. Business-facing datasets should not depend directly on unstable source structures.</p>
+          <p>That separation makes pipelines easier to reason about, test, troubleshoot and evolve.</p>
+          <blockquote class="insight-callout">Bronze preserves what arrived. Silver establishes what can be trusted. Gold publishes what the business should consume.</blockquote>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Bronze: preserve the source</h2>
+          <p>Bronze is the landing layer. Its primary responsibility is to preserve incoming data in a form that remains close to the original source. The goal is not to make the data beautiful. The goal is to make ingestion reliable, observable and reproducible.</p>
+          <p>A Bronze table will often include the original source fields together with ingestion metadata such as load timestamp, source file, batch identifier or processing timestamp. That metadata becomes extremely valuable when something goes wrong later.</p>
+          <p>If a Silver transformation suddenly produces fewer records than expected, Bronze should make it possible to answer where a record came from, when it was ingested, which source file or extraction produced it, and whether the problem already existed at the source.</p>
+          <p>This does not mean Bronze can never perform technical operations. Parsing, extraction of ingestion metadata or minimal technical normalization may be necessary just to persist the data reliably. The important principle is that Bronze should not silently redefine the meaning of the source data.</p>
+          <p>If the source sends <code>"00123"</code> as a string, converting it immediately into integer <code>123</code> may appear harmless, but it can remove information that later turns out to matter. Bronze should favour <strong>traceability over convenience</strong>.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Silver: establish trustworthy data</h2>
+          <p>Silver is where data becomes dependable enough to be reused across multiple downstream use cases. This is normally where the majority of data-engineering logic belongs.</p>
+          <p>Typical Silver responsibilities include type enforcement, standardization, deduplication, null handling, record alignment, schema validation, data-quality rules and integration between related datasets.</p>
+          <p>The key distinction is that Silver transformations should establish a <strong>consistent technical and business interpretation of the data</strong>, without tailoring everything to one individual dashboard or report.</p>
+          <p>Suppose three source systems represent customer identifiers differently. Bronze should preserve those representations. Silver is the appropriate place to resolve them into a consistent structure that downstream consumers can rely on.</p>
+          <p>A good Silver layer allows downstream teams to stop repeatedly solving the same cleaning problems. Instead of every report implementing its own version of “Which customer record should I use?” or “Which timestamp is valid?”, those decisions are made once and represented consistently.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Gold: serve business use cases</h2>
+          <p>Gold exists for consumption. The datasets here should be designed around how the organization actually uses data rather than how source systems happen to store it.</p>
+          <p>This is where reporting models, aggregates, business metrics, feature datasets and domain-specific analytical structures may live.</p>
+          <p>For example, a Silver layer may contain standardized orders, products, customers and payments. A Gold dataset might then expose daily revenue by product category, customer-level performance metrics or a reporting-ready sales model.</p>
+          <div class="insight-comparison">
+            <div><span>Silver says</span><strong>“This is the trusted representation of an order.”</strong></div>
+            <div><span>Gold says</span><strong>“This is how the organization wants to analyse orders.”</strong></div>
+          </div>
+          <p>Gold should also avoid becoming a dumping ground for every downstream request. A useful Gold layer contains intentional, well-defined data products rather than an uncontrolled collection of tables created for individual queries.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>What should not happen in each layer</h2>
+          <p>Many Medallion implementations become difficult to maintain because responsibilities slowly leak between layers.</p>
+          <ul class="insight-list">
+            <li><strong>Bronze</strong> should generally not contain complex business rules, reporting calculations or aggressive data cleaning.</li>
+            <li><strong>Silver</strong> should not simply copy Bronze tables without adding meaningful trust or consistency. It should also avoid becoming highly customized for individual dashboards.</li>
+            <li><strong>Gold</strong> should not repeatedly repair data-quality problems that should already have been resolved upstream.</li>
+          </ul>
+          <p>One useful test is to ask: <strong>If three different downstream teams need the same transformation, should they each implement it separately?</strong></p>
+          <p>If the answer is no, that logic probably belongs in Silver. If the transformation exists specifically to represent one analytical or business use case, Gold is usually the better place.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Where data validation belongs</h2>
+          <p>Validation does not belong exclusively to one layer. Different validation questions should be asked at different stages.</p>
+          <div class="insight-validation-grid">
+            <div>
+              <span>Ingestion / Bronze</span>
+              <p>Can the incoming data be accepted and traced? Are files present, payloads readable and structural changes visible?</p>
+            </div>
+            <div>
+              <span>Silver</span>
+              <p>Are identifiers present? Are types correct? Are duplicates handled? Do relationships and data-quality rules hold?</p>
+            </div>
+            <div>
+              <span>Gold</span>
+              <p>Do published metrics reconcile? Are aggregates complete? Does the dataset satisfy the consumer-facing contract?</p>
+            </div>
+          </div>
+          <p>Treating validation as a continuous responsibility across the pipeline is more effective than attaching a single “data quality” step somewhere in the middle.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Handling schema evolution</h2>
+          <p>Schema evolution is one of the places where clear layer responsibilities become especially useful. Source systems change: columns appear, columns disappear, data types change and previously required fields become optional.</p>
+          <p>Bronze should make those changes visible rather than hiding them. Silver should decide how those changes affect the trusted data contract.</p>
+          <p>For example, a source may change an identifier from <code>INT</code> to <code>BIGINT</code>. Bronze may accept and preserve the incoming structure, while Silver determines whether the trusted schema should also change and whether downstream systems are affected.</p>
+          <p>This creates a controlled boundary between unstable source systems and stable consumer-facing data.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Incremental processing across the layers</h2>
+          <p>Medallion Architecture does not imply that every layer must be rebuilt in full. In production systems, Bronze, Silver and Gold commonly process data incrementally.</p>
+          <div class="incremental-layer-grid" aria-label="Incremental processing by Medallion layer">
+            <div class="incremental-layer-card incremental-bronze">
+              <span class="incremental-layer-name">Bronze</span>
+              <strong>Ingest only what is new.</strong>
+              <p>Newly arrived files or newly extracted source records.</p>
+            </div>
+            <div class="incremental-layer-card incremental-silver">
+              <span class="incremental-layer-name">Silver</span>
+              <strong>Process only what changed.</strong>
+              <p>Changed records since the previous successful execution.</p>
+            </div>
+            <div class="incremental-layer-card incremental-gold">
+              <span class="incremental-layer-name">Gold</span>
+              <strong>Refresh only what is affected.</strong>
+              <p>Affected partitions, aggregates or business entities.</p>
+            </div>
+          </div>
+          <p>The important part is not simply making a pipeline incremental. It is defining how changes propagate safely between layers, including keys, late-arriving data, updates, deletes, deduplication and replay.</p>
+          <p>A pipeline that is fast but cannot correctly reproduce data after a failure is not a reliable pipeline. Incremental design should preserve both efficiency and recoverability.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>Common implementation mistakes</h2>
+          <p>One common mistake is creating Bronze, Silver and Gold schemas and assuming the architecture is finished. The names alone provide no architectural value.</p>
+          <p>Another mistake is performing nearly identical transformations in several Gold tables because the shared logic was never established in Silver. The opposite can also happen: Silver becomes overloaded with every possible business calculation, making it difficult to reuse outside the original reporting context.</p>
+          <p>Another frequent problem is losing source traceability too early. When ingestion metadata is discarded, debugging becomes significantly harder because downstream records can no longer be connected easily to their origin.</p>
+          <p>Finally, teams sometimes optimize for the shortest possible pipeline rather than the clearest ownership of transformations. Fewer steps are not automatically better. A slightly longer pipeline with clear contracts between layers is often easier to operate than a shorter pipeline where every stage performs multiple unrelated responsibilities.</p>
+        </section>
+
+        <section class="insight-article-section">
+          <h2>A practical decision framework</h2>
+          <p>When deciding where a transformation belongs, the most useful question is not “Is this Bronze, Silver or Gold logic?” Instead, ask what responsibility the transformation represents.</p>
+          <div class="decision-grid insight-decision-grid">
+            <div class="decision-card">
+              <span class="decision-number">01</span>
+              <h3>Capture and preserve</h3>
+              <p>If the goal is to retain incoming data and its origin, keep the logic close to Bronze.</p>
+            </div>
+            <div class="decision-card">
+              <span class="decision-number">02</span>
+              <h3>Make it trustworthy</h3>
+              <p>If the goal is consistency, validation and reuse across consumers, it belongs close to Silver.</p>
+            </div>
+            <div class="decision-card">
+              <span class="decision-number">03</span>
+              <h3>Shape for consumption</h3>
+              <p>If the goal is a specific business or analytical use case, it belongs close to Gold.</p>
+            </div>
+          </div>
+          <p>There will always be exceptions. Real platforms are more complicated than architecture diagrams. The objective is not to follow three rigid definitions; it is to create boundaries that make the system understandable.</p>
+        </section>
+
+        <section class="insight-takeaway">
+          <p class="eyebrow">Final takeaway</p>
+          <h2>Think in data contracts, not layer names.</h2>
+          <p>Bronze gives you confidence that you can trace and reproduce what arrived. Silver gives you confidence that the data has a consistent and trustworthy interpretation. Gold gives consumers data that is intentionally designed for the way they need to use it.</p>
+          <p>When those responsibilities remain clear, Medallion Architecture becomes more than a diagram. It becomes a practical engineering model for building data platforms that can evolve without becoming difficult to understand or maintain.</p>
+        </section>
+
+        <div class="insight-page-actions">
+          <a class="button" href="../../#contact">Discuss your data platform <span aria-hidden="true">→</span></a>
+          <a class="project-back-link" href="../../#insights">← Back to Insights</a>
+        </div>
+
+      </div>
+    </article>
+
+
+  </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" data-back-to-top>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m6.5 14.5 5.5-5.5 5.5 5.5"/>
+    </svg>
+  </button>
+
+  <footer class="site-footer">
+    <div class="container footer-top footer-grid">
+      <div class="footer-identity">
+        <a class="footer-brand" href="../../" aria-label="BGP Data Works home">
+          <img src="../../assets/BGP_Data_Works_Primary.svg" width="2020" height="661" loading="lazy" decoding="async" alt="BGP Data Works">
+        </a>
+      </div>
+
+      <nav class="footer-nav footer-column" aria-label="Footer navigation">
+        <strong>Navigation</strong>
+        <a href="../../#deliver">What We Deliver</a>
+        <a href="../../#expertise">Expertise</a>
+        <a href="../../#insights">Insights</a>
+        <a href="../../#about">About</a>
+      </nav>
+
+      <div class="footer-contact footer-column">
+        <strong>Contact</strong>
+        <div class="footer-contact-row">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3.5 6.5h17v11h-17z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <a href="mailto:contact@bgpdataworks.com">contact@bgpdataworks.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> BGP Data Works. All rights reserved.</p>
+      <p class="footer-note">Databricks, Delta Lake, Apache Spark and other product names are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
