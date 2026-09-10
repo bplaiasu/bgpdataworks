@@ -55,5 +55,37 @@
       "twitter_title": "Retail Monitoring Data Warehouse — BGP Data Works",
       "twitter_description": "A SQL Server retail data warehouse integrating transactional MySQL systems for near-real-time operational reporting."
     }
+  ],
+  "insights": [
+    {
+      "slug": "bronze-silver-gold",
+      "source": "insights/bronze-silver-gold.html",
+      "title": "Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works",
+      "description": "A practical guide to the responsibilities of Bronze, Silver and Gold layers in Medallion Architecture, including validation, schema evolution and incremental processing.",
+      "og_title": "Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works",
+      "og_description": "A practical perspective on what belongs in each Medallion Architecture layer and how to keep responsibilities clear as data platforms evolve.",
+      "twitter_title": "Bronze, Silver, Gold: What Each Layer Should Actually Do — BGP Data Works",
+      "twitter_description": "A practical perspective on what belongs in each Medallion Architecture layer and how to keep responsibilities clear as data platforms evolve."
+    },
+    {
+      "slug": "designing-reliable-databricks-ingestion-pipelines",
+      "source": "insights/designing-reliable-databricks-ingestion-pipelines.html",
+      "title": "Designing Reliable Databricks Ingestion Pipelines — BGP Data Works",
+      "description": "A practical guide to designing reliable Databricks ingestion pipelines with clear source contracts, incremental state, idempotency, schema handling, observability and recoverability.",
+      "og_title": "Designing Reliable Databricks Ingestion Pipelines — BGP Data Works",
+      "og_description": "Practical engineering principles for reliable Databricks ingestion: source contracts, idempotency, schema evolution, checkpoints, observability and safe recovery.",
+      "twitter_title": "Designing Reliable Databricks Ingestion Pipelines — BGP Data Works",
+      "twitter_description": "Practical engineering principles for reliable Databricks ingestion: source contracts, idempotency, schema evolution, checkpoints, observability and safe recovery."
+    },
+    {
+      "slug": "full-load-vs-incremental-load-vs-cdc",
+      "source": "insights/full-load-vs-incremental-load-vs-cdc.html",
+      "title": "Full Load vs Incremental Load vs CDC — BGP Data Works",
+      "description": "A practical comparison of full loads, incremental loads and change data capture, including trade-offs around source behavior, deletes, late data, recovery and operational complexity.",
+      "og_title": "Full Load vs Incremental Load vs CDC — BGP Data Works",
+      "og_description": "How to choose between full loads, incremental loads and CDC based on source behavior, latency, deletes, recovery and operational complexity.",
+      "twitter_title": "Full Load vs Incremental Load vs CDC — BGP Data Works",
+      "twitter_description": "How to choose between full loads, incremental loads and CDC based on source behavior, latency, deletes, recovery and operational complexity."
+    }
   ]
 }

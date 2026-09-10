@@ -71,6 +71,18 @@ src/projects/
 
 Each generated project receives its own static URL and full HTML metadata.
 
+
+Insight content:
+
+```text
+src/insights/
+├── bronze-silver-gold.html
+├── designing-reliable-databricks-ingestion-pipelines.html
+└── full-load-vs-incremental-load-vs-cdc.html
+```
+
+Each generated Insight receives its own static URL and full HTML metadata.
+
 ## Local development
 
 From this folder:
