@@ -7,6 +7,7 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
+DIST = ROOT / "dist"
 CONFIG_PATH = ROOT / "site.json"
 
 def load(path):
@@ -91,28 +92,15 @@ def build():
     css_rev = file_revision(SRC / "styles.css")
     js_rev = file_revision(SRC / "script.js")
 
-    # Remove generated directories/files before rebuilding.
-    for directory in [ROOT / "projects", ROOT / "assets"]:
-        if directory.exists():
-            shutil.rmtree(directory)
-
-    for filename in [
-        "index.html",
-        "404.html",
-        "styles.css",
-        "script.js",
-        "robots.txt",
-        "site.webmanifest",
-        "sitemap.xml"
-    ]:
-        path = ROOT / filename
-        if path.exists():
-            path.unlink()
+    # Recreate the generated output directory from scratch.
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    DIST.mkdir(parents=True)
 
     # Static assets.
-    shutil.copytree(SRC / "assets", ROOT / "assets")
+    shutil.copytree(SRC / "assets", DIST / "assets")
     for filename in ["styles.css", "script.js", "robots.txt", "site.webmanifest"]:
-        shutil.copy2(SRC / filename, ROOT / filename)
+        shutil.copy2(SRC / filename, DIST / filename)
 
     # Homepage.
     home = config["home"]
@@ -145,7 +133,7 @@ def build():
         "MAIN": home_main,
         "FOOTER": footer
     }
-    write(ROOT / "index.html", render(base_template, home_context))
+    write(DIST / "index.html", render(base_template, home_context))
 
     # Project pages.
     project_urls = []
@@ -182,7 +170,7 @@ def build():
             "FOOTER": footer
         }
 
-        output = ROOT / "projects" / slug / "index.html"
+        output = DIST / "projects" / slug / "index.html"
         write(output, render(base_template, context))
         if project_url:
             project_urls.append(project_url)
@@ -222,7 +210,7 @@ def build():
             "FOOTER": footer
         }
 
-        output = ROOT / "insights" / slug / "index.html"
+        output = DIST / "insights" / slug / "index.html"
         write(output, render(base_template, context))
         if insight_url:
             insight_urls.append(insight_url)
@@ -233,7 +221,7 @@ def build():
         "COMPANY_NAME": escaped(company["name"]),
         "CSS_REV": css_rev
     }
-    write(ROOT / "404.html", render(error_template, error_context))
+    write(DIST / "404.html", render(error_template, error_context))
 
     # Sitemap becomes available automatically when the final base URL is configured.
     if company.get("base_url"):
@@ -243,10 +231,11 @@ def build():
         for url in urls:
             sitemap.append(f"  <url><loc>{html.escape(url)}</loc></url>")
         sitemap.append("</urlset>")
-        write(ROOT / "sitemap.xml", "\n".join(sitemap) + "\n")
+        write(DIST / "sitemap.xml", "\n".join(sitemap) + "\n")
 
     print("Build complete.")
-    print(f"Generated homepage: {ROOT / 'index.html'}")
+    print(f"Output directory: {DIST}")
+    print(f"Generated homepage: {DIST / 'index.html'}")
     print(f"Generated project pages: {len(config['projects'])}")
     print(f"Generated insight pages: {len(config.get('insights', []))}")
     print(f"Shared email: {company['contact_email']}")
