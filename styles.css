@@ -212,7 +212,8 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
 .footer-contact-icon svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .footer-bottom { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 30px; color: var(--muted); font-size: 11px; }
 .footer-bottom p { margin: 0; }
-.footer-note { max-width: 620px; text-align: right; }
+.footer-bottom > p:first-child { flex: 0 0 auto; }
+.footer-note { flex: 1; max-width: none; text-align: right; }
 
 
 /* Back-to-top control: appears after the visitor scrolls down the page. */
@@ -333,14 +334,11 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* Technical expertise brand icons */
+/* Technical expertise icon slot */
 .expertise-icon {
-  width: 46px;
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0 0 14px;
+  display: inline-grid;
+  place-items: center;
+  margin: 0;
 }
 .expertise-icon img {
   display: block;
@@ -393,19 +391,6 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
   padding: 4px 34px 0;
   border-left: 1px solid var(--line);
 }
-.expertise-section .expertise-brand {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: 48px;
-  margin: 0 0 24px;
-  object-fit: contain;
-  object-position: left center;
-}
-.expertise-section .expertise-brand-databricks { width: 176px; }
-.expertise-section .expertise-brand-delta { width: 172px; }
-.expertise-section .expertise-brand-spark { width: 150px; height: 50px; }
-.expertise-section .expertise-brand-sql { width: 112px; }
 .expertise-section .expertise-card ul {
   margin: 0;
 }
@@ -445,7 +430,6 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
     border-left: 0;
     border-top: 1px solid var(--line);
   }
-  .expertise-section .expertise-brand { margin-bottom: 20px; }
 }
 
 /* How We Build + Technical Expertise use the global html scroll-padding-top.
@@ -703,19 +687,40 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
   border-top: 0;
   border-left: 1px solid #DDE5EE;
 }
-.expertise-section .expertise-brand {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  margin: 0 0 clamp(15px, 1.55vw, 26px);
-  object-fit: contain;
-  object-position: left center;
+.expertise-section .expertise-label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 64px;
+  margin: 0 0 clamp(18px, 1.55vw, 26px);
 }
-.expertise-section .expertise-brand-databricks { width: clamp(118px, 10vw, 180px); }
-.expertise-section .expertise-brand-delta { width: clamp(118px, 10vw, 180px); }
-.expertise-section .expertise-brand-spark { width: clamp(90px, 7.8vw, 145px); }
-.expertise-section .expertise-brand-sql { width: clamp(82px, 7.5vw, 120px); }
+.expertise-section .expertise-index {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  padding: 7px;
+  border: 0;
+  border-radius: 14px;
+  background: #F5F9FF;
+  overflow: hidden;
+}
+.expertise-section .expertise-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.expertise-section .expertise-label h3 {
+  margin: 0;
+  color: var(--navy);
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-size: clamp(16px, 1.15vw, 21px);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
 .expertise-section .expertise-card ul {
   margin: 0;
   padding: 0;
@@ -2104,3 +2109,113 @@ h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.25; }
   .pattern-decision-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
+/* What We Deliver: open service strip instead of repeated cards. */
+.deliver-grid {
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.service-card {
+  min-height: 0;
+  padding: 30px 24px 28px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+}
+.service-card:first-child { border-left: 0; }
+.service-card:hover {
+  transform: none;
+  border-color: var(--line);
+  box-shadow: none;
+}
+.service-card .service-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 72px;
+  margin-bottom: 20px;
+}
+.service-card .icon-box {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  margin: 0;
+  padding: 8px;
+  border-radius: 16px;
+  background: #F5F9FF;
+  overflow: hidden;
+}
+.service-card .icon-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.service-card h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+.service-card p {
+  margin: 0 0 16px;
+  color: #425571;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.service-card > span {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1200px) {
+  .service-card { border-left: 1px solid var(--line); }
+  .service-card:nth-child(3n + 1) { border-left: 0; }
+  .service-card:nth-child(n + 4) { border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 900px) {
+  .service-card { border-left: 1px solid var(--line); border-top: 0; }
+  .service-card:nth-child(odd) { border-left: 0; }
+  .service-card:nth-child(even) { border-left: 1px solid var(--line); }
+  .service-card:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 600px) {
+  .service-card,
+  .service-card:nth-child(odd),
+  .service-card:nth-child(even) {
+    border-left: 0;
+  }
+  .service-card:nth-child(n + 2) { border-top: 1px solid var(--line); }
+}
+
+
+@media (max-width: 600px) {
+  .service-card .service-heading {
+    gap: 14px;
+    min-height: 66px;
+    margin-bottom: 18px;
+  }
+  .service-card .icon-box {
+    width: 66px;
+    height: 66px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .expertise-section .expertise-index {
+    width: 58px;
+    height: 58px;
+    border-radius: 13px;
+  }
+  .expertise-section .expertise-label {
+    gap: 14px;
+    min-height: 58px;
+  }
+}

@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?r=1c4b1f971813">
+  <link rel="stylesheet" href="styles.css?r=1f75cd9e6a96">
   <script defer src="script.js?r=cbab1c8d5259"></script>
   <script type="application/ld+json">
 {
@@ -84,7 +84,7 @@
 
           <div class="hero-actions">
             <a class="button" href="#deliver">Explore what we deliver <span aria-hidden="true">→</span></a>
-            <a class="text-link light-link" href="#contact">Start a conversation <span aria-hidden="true">→</span></a>
+            <a class="text-link light-link" href="#contact">Let's talk <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -102,51 +102,61 @@
             <h2>Data engineering built for production.</h2>
             <p>From ingestion to curated data, we design, build and modernize the systems that move data reliably through your platform.</p>
           </div>
-          <a class="text-link" href="#contact">Discuss your use case <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="#contact">Let's talk <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="deliver-grid">
           <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><ellipse cx="24" cy="12" rx="12" ry="5"/><path d="M12 12v12c0 3 5 5 12 5s12-2 12-5V12M12 20c0 3 5 5 12 5s12-2 12-5M12 28v8c0 3 5 5 12 5s12-2 12-5V24"/></svg>
+            <div class="service-heading">
+              <div class="icon-box" aria-hidden="true">
+                <img src="assets/service-data-ingestion.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+              </div>
+              <h3>Data Ingestion</h3>
             </div>
-            <h3>Data Ingestion</h3>
             <p>Get data reliably from source systems into your platform.</p>
             <span>APIs · Databases · Files · Events · Streaming</span>
           </article>
 
           <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 8l4 5 6-1 2 6 6 2-2 6 2 6-6 2-2 6-6-1-4 5-4-5-6 1-2-6-6-2 2-6-2-6 6-2 2-6 6 1z"/><circle cx="24" cy="24" r="6"/></svg>
+            <div class="service-heading">
+              <div class="icon-box" aria-hidden="true">
+                <img src="assets/service-data-transformation.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+              </div>
+              <h3>Data Transformation</h3>
             </div>
-            <h3>Data Transformation</h3>
             <p>Turn raw data into clean, structured information.</p>
             <span>Validation · Enrichment · Deduplication · Modeling</span>
           </article>
 
           <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M24 7L7 16l17 9 17-9zM7 24l17 9 17-9M7 32l17 9 17-9"/></svg>
+            <div class="service-heading">
+              <div class="icon-box" aria-hidden="true">
+                <img src="assets/service-lakehouse-architecture.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+              </div>
+              <h3>Lakehouse Architecture</h3>
             </div>
-            <h3>Lakehouse Architecture</h3>
             <p>Structure data for maintainability, trust and scale.</p>
             <span>Bronze · Silver · Gold · Metadata · Governance</span>
           </article>
 
           <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><circle cx="12" cy="12" r="4"/><circle cx="36" cy="12" r="4"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/><circle cx="24" cy="24" r="4"/><path d="M15 14l6 7M33 14l-6 7M15 34l6-7M33 34l-6-7"/></svg>
+            <div class="service-heading">
+              <div class="icon-box" aria-hidden="true">
+                <img src="assets/service-pipeline-engineering.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+              </div>
+              <h3>Pipeline Engineering</h3>
             </div>
-            <h3>Pipeline Engineering</h3>
             <p>Engineer pipelines for reliable operation in production.</p>
             <span>Orchestration · Monitoring · Error handling · Data quality</span>
           </article>
 
           <article class="service-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 48 48"><path d="M37 14a16 16 0 10 3 18M37 14V6m0 8h-8"/><path d="M19 18h12v12H19z"/></svg>
+            <div class="service-heading">
+              <div class="icon-box" aria-hidden="true">
+                <img src="assets/service-platform-modernization.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+              </div>
+              <h3>Platform Modernization</h3>
             </div>
-            <h3>Platform Modernization</h3>
             <p>Replace fragile processes with maintainable infrastructure.</p>
             <span>Migrate · Automate · Optimize · Scale</span>
           </article>
@@ -221,23 +231,31 @@
         </div>
 
         <article class="expertise-card">
-          <img class="expertise-brand expertise-brand-databricks" src="assets/brand-databricks-mock.png" width="151" height="45" loading="lazy" decoding="async" alt="Databricks">
-          <h3 class="sr-only">Databricks</h3>
+          <div class="expertise-label">
+            <span class="expertise-index expertise-icon" aria-hidden="true"><img src="assets/expertise-databricks.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <h3>Databricks</h3>
+          </div>
           <ul><li>Lakehouse architecture</li><li>Workflows</li><li>Unity Catalog</li><li>Auto Loader</li></ul>
         </article>
         <article class="expertise-card">
-          <img class="expertise-brand expertise-brand-delta" src="assets/brand-delta-lake-mock.png" width="141" height="50" loading="lazy" decoding="async" alt="Delta Lake">
-          <h3 class="sr-only">Delta Lake</h3>
+          <div class="expertise-label">
+            <span class="expertise-index expertise-icon" aria-hidden="true"><img src="assets/expertise-delta-lake.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <h3>Delta Lake</h3>
+          </div>
           <ul><li>ACID transactions</li><li>Schema evolution</li><li>Time travel</li><li>Incremental processing</li></ul>
         </article>
         <article class="expertise-card">
-          <img class="expertise-brand expertise-brand-spark" src="assets/brand-spark-mock.png" width="112" height="55" loading="lazy" decoding="async" alt="Apache Spark">
-          <h3 class="sr-only">PySpark</h3>
+          <div class="expertise-label">
+            <span class="expertise-index expertise-icon" aria-hidden="true"><img src="assets/expertise-apache-spark.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <h3>Apache Spark</h3>
+          </div>
           <ul><li>PySpark</li><li>Distributed processing</li><li>Scalable transformations</li><li>Batch and streaming</li></ul>
         </article>
         <article class="expertise-card">
-          <img class="expertise-brand expertise-brand-sql" src="assets/brand-sql-mock.png" width="110" height="53" loading="lazy" decoding="async" alt="SQL">
-          <h3 class="sr-only">SQL</h3>
+          <div class="expertise-label">
+            <span class="expertise-index expertise-icon" aria-hidden="true"><img src="assets/expertise-sql.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <h3>SQL</h3>
+          </div>
           <ul><li>Data modeling</li><li>Transformations</li><li>Validation</li><li>Analytics</li></ul>
         </article>
       </div>
@@ -357,7 +375,7 @@
 
         <div class="contact-details-card" aria-label="BGP Data Works contact details">
           <div class="contact-card-heading">
-            <p class="contact-card-kicker">Start a conversation</p>
+            <p class="contact-card-kicker">Let's talk</p>
             <p class="contact-card-note">Reach us directly by email.</p>
           </div>
 
@@ -412,7 +430,7 @@
     </div>
     <div class="container footer-bottom">
       <p>© <span id="year"></span> BGP Data Works. All rights reserved.</p>
-      <p class="footer-note">Databricks, Delta Lake, Apache Spark and other product names are trademarks of their respective owners.</p>
+      <p class="footer-note">Databricks, Delta Lake, Apache Spark, and other product names referenced on this site are trademarks of their respective owners. BGP Data Works is not affiliated with or endorsed by these companies.</p>
     </div>
   </footer>
 
