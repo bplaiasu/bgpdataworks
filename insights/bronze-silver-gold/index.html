@@ -136,7 +136,7 @@
           <p>Typical Silver responsibilities include type enforcement, standardization, deduplication, null handling, record alignment, schema validation, data-quality rules and integration between related datasets.</p>
           <p>The key distinction is that Silver transformations should establish a <strong>consistent technical and business interpretation of the data</strong>, without tailoring everything to one individual dashboard or report.</p>
           <p>Suppose three source systems represent customer identifiers differently. Bronze should preserve those representations. Silver is the appropriate place to resolve them into a consistent structure that downstream consumers can rely on.</p>
-          <p>A good Silver layer allows downstream teams to stop repeatedly solving the same cleaning problems. Instead of every report implementing its own version of “Which customer record should I use?” or “Which timestamp is valid?”, those decisions are made once and represented consistently.</p>
+          <p>A good Silver layer allows downstream teams to stop repeatedly solving the same cleaning problems. Instead of every report implementing its own version of "Which customer record should I use?" or "Which timestamp is valid?", those decisions are made once and represented consistently.</p>
         </section>
 
         <section class="insight-article-section">
@@ -145,8 +145,8 @@
           <p>This is where reporting models, aggregates, business metrics, feature datasets and domain-specific analytical structures may live.</p>
           <p>For example, a Silver layer may contain standardized orders, products, customers and payments. A Gold dataset might then expose daily revenue by product category, customer-level performance metrics or a reporting-ready sales model.</p>
           <div class="insight-comparison">
-            <div><span>Silver says</span><strong>“This is the trusted representation of an order.”</strong></div>
-            <div><span>Gold says</span><strong>“This is how the organization wants to analyse orders.”</strong></div>
+            <div><span>Silver says</span><strong>"This is the trusted representation of an order."</strong></div>
+            <div><span>Gold says</span><strong>"This is how the organization wants to analyse orders."</strong></div>
           </div>
           <p>Gold should also avoid becoming a dumping ground for every downstream request. A useful Gold layer contains intentional, well-defined data products rather than an uncontrolled collection of tables created for individual queries.</p>
         </section>
@@ -180,7 +180,7 @@
               <p>Do published metrics reconcile? Are aggregates complete? Does the dataset satisfy the consumer-facing contract?</p>
             </div>
           </div>
-          <p>Treating validation as a continuous responsibility across the pipeline is more effective than attaching a single “data quality” step somewhere in the middle.</p>
+          <p>Treating validation as a continuous responsibility across the pipeline is more effective than attaching a single "data quality" step somewhere in the middle.</p>
         </section>
 
         <section class="insight-article-section">
@@ -225,7 +225,7 @@
 
         <section class="insight-article-section">
           <h2>A practical decision framework</h2>
-          <p>When deciding where a transformation belongs, the most useful question is not “Is this Bronze, Silver or Gold logic?” Instead, ask what responsibility the transformation represents.</p>
+          <p>When deciding where a transformation belongs, the most useful question is not "Is this Bronze, Silver or Gold logic?" Instead, ask what responsibility the transformation represents.</p>
           <div class="decision-grid insight-decision-grid">
             <div class="decision-card">
               <span class="decision-number">01</span>
