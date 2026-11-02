@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bgpdataworks.com/</loc></url>
+  <url><loc>https://bgpdataworks.com/projects/enterprise-data-validation-framework/</loc></url>
+  <url><loc>https://bgpdataworks.com/projects/high-performance-financial-data-pipeline/</loc></url>
+  <url><loc>https://bgpdataworks.com/projects/enterprise-data-platform-modernization/</loc></url>
+  <url><loc>https://bgpdataworks.com/projects/retail-monitoring-data-warehouse/</loc></url>
+  <url><loc>https://bgpdataworks.com/insights/bronze-silver-gold/</loc></url>
+  <url><loc>https://bgpdataworks.com/insights/designing-reliable-databricks-ingestion-pipelines/</loc></url>
+  <url><loc>https://bgpdataworks.com/insights/full-load-vs-incremental-load-vs-cdc/</loc></url>
+</urlset>
