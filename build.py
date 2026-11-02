@@ -10,8 +10,10 @@ SRC = ROOT / "src"
 DIST = ROOT / "dist"
 CONFIG_PATH = ROOT / "site.json"
 
+
 def load(path):
     return path.read_text(encoding="utf-8")
+
 
 def render(template, context):
     result = template
@@ -22,11 +24,14 @@ def render(template, context):
         raise RuntimeError(f"Unresolved template values: {unresolved}")
     return result
 
+
 def escaped(value):
     return html.escape(str(value), quote=True)
 
+
 def file_revision(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+
 
 def page_url(base_url, relative_path):
     if not base_url:
@@ -36,12 +41,14 @@ def page_url(base_url, relative_path):
         return base + "/"
     return base + "/" + relative_path.strip("/") + "/"
 
+
 def url_tags(url):
     if not url:
         return "", ""
     canonical = f'  <link rel="canonical" href="{escaped(url)}">\n'
     og = f'  <meta property="og:url" content="{escaped(url)}">\n'
     return canonical, og
+
 
 def organization_schema(company):
     data = {
@@ -63,6 +70,7 @@ def organization_schema(company):
         data["url"] = company["base_url"].rstrip("/") + "/"
     return '  <script type="application/ld+json">\n' + json.dumps(data, indent=2) + '\n  </script>\n'
 
+
 def shared_context(company, root_prefix, is_home):
     section_prefix = "" if is_home else root_prefix
     return {
@@ -76,9 +84,11 @@ def shared_context(company, root_prefix, is_home):
         "HEADER_ID": ' id="home"' if is_home else ""
     }
 
+
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
+
 
 def build():
     config = json.loads(load(CONFIG_PATH))
@@ -99,7 +109,7 @@ def build():
 
     # Static assets.
     shutil.copytree(SRC / "assets", DIST / "assets")
-    for filename in ["styles.css", "script.js", "robots.txt", "site.webmanifest"]:
+    for filename in ["styles.css", "script.js", "robots.txt", "site.webmanifest", "CNAME"]:
         shutil.copy2(SRC / filename, DIST / filename)
 
     # Homepage.

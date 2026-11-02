@@ -2,7 +2,7 @@
   "company": {
     "name": "BGP Data Works",
     "contact_email": "contact@bgpdataworks.com",
-    "base_url": "",
+    "base_url": "https://bgpdataworks.com",
     "description": "Data engineering company focused on reliable data ingestion, transformation, lakehouse architecture and production-grade pipelines.",
     "theme_color": "#041B3A"
   },
